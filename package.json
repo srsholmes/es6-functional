@@ -1,0 +1,34 @@
+{
+  "name": "es6-functional",
+  "version": "0.0.1",
+  "description": "ES6 Functional Utilities",
+  "main": "./",
+  "repository": "",
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "files": [
+    "index.js",
+    "core",
+    "decorators",
+    "observable",
+    "utils"
+  ],
+  "scripts": {
+    "compile": "babel --stage 0 --out-dir ./ src",
+    "test": "npm run compile && babel-tape-runner test/**/*.js | tap-bail | tap-difflet",
+    "watch": "watch 'npm test' src test",
+    "prepublish": "npm test"
+  },
+  "author": "Simon Holmes",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-runtime": "^6.6.1",
+    "babel-tape-runner": "^2.0.1",
+    "tap-bail": "0.0.0",
+    "tap-difflet": "^0.4.0",
+    "tape": "^4.5.1",
+    "watch": "^0.17.1"
+  }
+}
