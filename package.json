@@ -7,28 +7,34 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "files": [
-    "index.js",
-    "core",
-    "decorators",
-    "observable",
-    "utils"
-  ],
   "scripts": {
     "compile": "babel --stage 0 --out-dir ./ src",
-    "test": "npm run compile && babel-tape-runner test/**/*.js | tap-bail | tap-difflet",
+    "test": "npm run compile && ava --tap | faucet",
     "watch": "watch 'npm test' src test",
     "prepublish": "npm test"
   },
   "author": "Simon Holmes",
   "license": "MIT",
   "devDependencies": {
-    "babel": "^6.5.2",
+    "ava": "^0.13.0",
+    "babel-cli": "^6.6.5",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": "^6.6.1",
     "babel-tape-runner": "^2.0.1",
-    "tap-bail": "0.0.0",
-    "tap-difflet": "^0.4.0",
-    "tape": "^4.5.1",
+    "faucet": "0.0.1",
     "watch": "^0.17.1"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "test/**/*.spec.js"
+    ],
+    "failFast": true,
+    "tap": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   }
 }
