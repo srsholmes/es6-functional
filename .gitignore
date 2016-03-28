@@ -1,8 +1,5 @@
-/objects/
-/strings/
-/math/
-/arrays/
 node_modules/
 npm-debug.log
 /index.js
 *.tgz
+.idea
